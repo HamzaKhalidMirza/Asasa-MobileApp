@@ -1,0 +1,23 @@
+export interface ad {
+    _id?: number,
+    area: string,
+    areaType: string,
+    biz_comm: object,
+    demand: string,
+    title: string,
+    description: string,
+    healthcare: object,
+    imgCount: string,
+    imgUID: string,
+    imgUrl: string,
+    vidUrl: string,
+    locationData: object,
+    nearby_loc: object,
+    other: object,
+    plot_features?: object,
+    propNumber: string,
+    rooms: object,
+    street: string,
+    type: string,
+    subtype: string
+}

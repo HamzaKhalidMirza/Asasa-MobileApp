@@ -1,0 +1,72 @@
+<ion-header>
+  <img class="closeIcon" (click)="dismiss()" src="assets/icon/close1.png" />
+</ion-header>
+<ion-content>
+  <div class="headWithImg">
+    <div (click)="cameraClick()" class="profileImg">
+      <img [src]="image" />
+
+      <ion-icon name="camera"></ion-icon>
+    </div>
+  </div>
+
+  <div class="section section-divider"></div>
+
+  <form [formGroup]="ngForm" class="regForm" (ngSubmit)="updateUser()">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+          <ion-item>
+            <ion-label stacked>Name</ion-label>
+            <ion-input
+              type="text"
+              formControlName="name"
+              [class.invalid]="Name.invalid && (Name.dirty || Name.touched)"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label stacked>Email</ion-label>
+            <ion-input
+              type="email"
+              formControlName="email"
+              [class.invalid]="Email.invalid && (Email.dirty || Email.touched)"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label stacked>Phone No.</ion-label>
+            <ion-input
+              type="text"
+              formControlName="phone"
+              required
+              readonly
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <button
+            ion-button
+            round
+            [disabled]="ngForm.invalid ||
+            (ngForm.touched && ngForm.pristine) ||
+            !file"
+            class="btnFooter mb3rem"
+            type="submit"
+            block
+          >
+            Update!
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

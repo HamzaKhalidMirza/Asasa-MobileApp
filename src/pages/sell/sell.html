@@ -1,0 +1,205 @@
+<ion-header>
+  <img class="closeIcon" (click)="closeModal()" src="assets/icon/close1.png" />
+</ion-header>
+<ion-content>
+  <div class="headWithTitle">
+    <div class="overlay">
+      <div class="content">
+        <h1>Sell and rent Out Property</h1>
+        <p>Add property to get started with ASASA</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section section-divider"></div>
+
+  <ion-grid>
+    <ion-row class="ml2rem">
+      <ion-col>
+        <h2 class="title">ADD PROPERTY</h2>
+      </ion-col>
+    </ion-row>
+    <ion-row class="selection-btn ml2rem">
+      <ion-col col-3 style="padding-right: 0">
+        <button
+          ion-button
+          class="pre-btn btn-sale btn-normal"
+          [class.btn-yes]="purpose === 'buy'"
+          [class.btn-no]="purpose === 'rent'"
+          block
+          (click)="selectSale()"
+        >
+          Sale
+        </button>
+      </ion-col>
+      <ion-col col-3 style="padding-left: 0">
+        <button
+          ion-button
+          class="pre-btn btn-rent btn-normal btn-no"
+          [class.btn-yes]="purpose === 'rent'"
+          [class.btn-no]="purpose === 'buy'"
+          block
+          (click)="selectRent()"
+        >
+          Rent
+        </button>
+      </ion-col>
+    </ion-row>
+    <form
+      padding
+      [formGroup]="ngForm"
+      class="regForm"
+      (ngSubmit)="postProperty()"
+    >
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label stacked>Full Name</ion-label>
+            <ion-input
+              type="text"
+              formControlName="name"
+              [class.invalid]="Name.invalid && (Name.dirty || Name.touched)"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label stacked>Email</ion-label>
+            <ion-input
+              type="email"
+              formControlName="email"
+              [class.invalid]="Email.invalid && (Email.dirty || Email.touched)"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label stacked>Phone</ion-label>
+            <ion-input
+              type="number"
+              formControlName="phone"
+              [class.invalid]="Phone.invalid && (Phone.dirty || Phone.touched)"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label stacked>City</ion-label>
+            <ion-input
+              type="text"
+              formControlName="city"
+              [class.invalid]="City.invalid && (City.dirty || City.touched)"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label stacked>Property Detail</ion-label>
+            <ion-input
+              formControlName="propertyDetails"
+              [class.invalid]="PropertyDetails.invalid && (PropertyDetails.dirty || PropertyDetails.touched)"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item
+            [class.invalid]="PropertyType.invalid && (PropertyType.dirty || PropertyType.touched)"
+          >
+            <ion-label stacked>Property type</ion-label>
+            <ion-select interface="popover" formControlName="propertyType">
+              <ion-option value="apartment">Apartment</ion-option>
+              <ion-option value="portion">Portion</ion-option>
+              <ion-option value="house">House</ion-option>
+              <ion-option value="shop">Shop</ion-option>
+              <ion-option value="plaza">Plaza</ion-option>
+              <ion-option value="office">Office</ion-option>
+              <ion-option value="floor">Floor</ion-option>
+              <ion-option value="residential_plot">Residential Plot</ion-option>
+              <ion-option value="commercial_plot">Commercial Plot</ion-option>
+              <ion-option value="farm_house">Farm House</ion-option>
+              <ion-option value="pent_house">Pent House</ion-option>
+              <ion-option value="other">Other</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label stacked>Land Area</ion-label>
+            <ion-input
+              type="text"
+              formControlName="landArea"
+              [class.invalid]="LandArea.invalid && (LandArea.dirty || LandArea.touched)"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item
+            [class.invalid]="LandAreaUnit.invalid && (LandAreaUnit.dirty || LandAreaUnit.touched)"
+          >
+            <ion-label stacked>Area Unit</ion-label>
+            <ion-select interface="popover" formControlName="landAreaUnit">
+              <ion-option value="kanal">Kanal</ion-option>
+              <ion-option value="marla">Marla</ion-option>
+              <ion-option value="sqft">Square Feet</ion-option>
+              <ion-option value="sqyd">Square Yard</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label stacked>Demand</ion-label>
+            <ion-input
+              type="text"
+              formControlName="demand"
+              [class.invalid]="Demand.invalid && (Demand.dirty || Demand.touched)"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label stacked>Type your message here...</ion-label>
+            <ion-textarea
+              name="message"
+              autocomplete="on"
+              autocorrect="on"
+              formControlName="message"
+              [class.invalid]="Message.invalid && (Message.dirty || Message.touched)"
+            ></ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <button
+            round
+            block
+            [disabled]="!ngForm.valid"
+            class="btnFooter mb3rem"
+            type="submit"
+            ion-button
+          >
+            Add Property
+          </button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>

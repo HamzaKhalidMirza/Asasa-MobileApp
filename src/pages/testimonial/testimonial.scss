@@ -1,0 +1,89 @@
+page-testimonial {
+  ion-header {
+    background: #0a6492;
+    text-align: right;
+  }
+  .closeIcon {
+    filter: brightness(0) invert(1);
+    padding: 1rem 1.5rem 0.5rem;
+    margin: 0rem !important;
+    height: 3rem;
+  }
+
+  .headWithTitle {
+    position: relative;
+    height: 18rem;
+    width: 100%;
+    background: linear-gradient(rgba(30, 60, 60, 0.6)),
+      url("../assets/imgs/loginpage.jpg") no-repeat;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      background-size: cover;
+
+    .title {
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      top: 6rem;
+      left: 50%;
+      transform: translate(-50%, 0%);
+      color: #fff;
+    }
+  }
+
+  .section-divider {
+    height: 15px;
+    padding: 0;
+    margin-top: 2rem;
+    background: color($colors, appGreen);
+  }
+
+  .regForm {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: white;
+    .item-inner {
+      margin-left: 0 !important;
+      padding-right: 0 !important;
+    }
+
+    ion-item {
+      position: relative;
+    }
+  }
+
+  .item {
+    padding: 0rem;
+    color: black;
+  }
+  .err {
+    color: red;
+    text-align: right;
+  }
+
+  .btnFooter:active {
+    opacity: 0.8;
+  }
+
+  .mt3rem {
+    margin-top: 3rem;
+  }
+  .mt2rem {
+    margin-top: 2rem;
+  }
+  .mt1rem {
+    margin-top: 1rem;
+  }
+
+  .mb3rem {
+    margin-bottom: 3rem;
+  }
+
+  .invalid {
+    border-bottom: 1px solid #f32013;
+  }
+
+  button {
+    background-color: #2e759d !important;
+  }
+}

@@ -1,0 +1,288 @@
+// http://ionicframework.com/docs/theming/
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+.sideMenu {
+  .input-wrapper {
+    color: #0a6492;
+  }
+
+  p {
+    font-size: 1.4rem !important;
+  }
+  background-color: white;
+  .profile {
+    padding: 1rem;
+    background: white;
+
+    img {
+      width: 70%;
+    }
+
+    [col-7] {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      p {
+        width: 100%;
+        margin: 0;
+        font-size: 1.8rem !important;
+        color: #0a6492;
+      }
+      p:nth-child(2) {
+        font-size: 1.2rem !important;
+        color: gray;
+        letter-spacing: 1px;
+      }
+      .edit {
+        color: black;
+        font-size: 12px !important;
+        margin-top: 1rem;
+        border: 1px solid #0a6492;
+
+        width: 45%;
+        text-align: center;
+        padding: 2px 0px;
+      }
+
+      .edit:active {
+        opacity: 0.5;
+      }
+    }
+
+    .imageSetting {
+      border-radius: 25rem;
+      border: 2px solid rgb(255, 255, 255);
+      height: 12rem;
+      width: 12rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 2rem;
+    }
+
+    .profilePic {
+      border-radius: 25rem;
+      width: 10rem;
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      .default {
+        border-radius: 0rem !important;
+      }
+      img {
+        width: 8rem;
+        border-radius: 25rem;
+        object-fit: contain;
+        height: 8rem;
+        box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.42);
+      }
+    }
+  }
+  .item {
+    font-family: TrajanProBold;
+    background-color: transparent;
+    ion-badge {
+      background-color: #116594;
+    }
+
+    img {
+      width: 2.1rem;
+    }
+  }
+  .item:active {
+    opacity: 0.5;
+  }
+  .logoutBtn {
+    background-color: #3e3e3e;
+    position: absolute;
+    right: 5rem;
+    bottom: 3rem;
+  }
+
+  ion-label {
+    font-size: 1.2rem !important;
+  }
+
+  //Modal setting for having transparent background
+
+  ion-modal.asasa-modal {
+    ion-backdrop {
+      visibility: visible;
+      z-index: 0;
+    }
+    &.transparent {
+      ion-backdrop {
+        visibility: visible;
+        z-index: 0;
+        background-color: transparent !important;
+      }
+    }
+    .modal-wrapper {
+      height: 49.6rem;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  .searchBar {
+    display: flex;
+
+    align-items: center;
+    background: #ffffff;
+    padding: 0;
+
+    margin-top: 2px;
+    position: relative;
+    .in {
+      width: 100%;
+      background: whitesmoke;
+      margin: 1rem;
+      position: relative;
+      border-radius: 3rem;
+      box-shadow: 0px 0px 16px -7px rgba(0, 0, 0, 0.42);
+    }
+    button {
+      height: 4rem;
+      background-color: #0a6492 !important;
+      border-radius: 5rem;
+      position: absolute;
+      right: -4px;
+      top: -4px;
+      border: 1px solid white;
+      color: white;
+      width: 4rem;
+    }
+
+    ion-input {
+      padding-left: 10px;
+    }
+    .text-input {
+      color: #0a9266 !important;
+      font-weight: 500;
+    }
+  }
+}
+.back-button {
+  color: #2a5067;
+}
+
+.swiper-pagination-bullet {
+  background: #bdbdbd !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #0a6492 !important;
+  opacity: 1;
+}
+
+ion-loading.myloading-wrapper {
+  .loading-wrapper {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-direction: column !important;
+    padding: 19px 18px !important;
+  }
+  .loading-content {
+    width: 12rem !important;
+    margin-left: 0 !important;
+  }
+  .custom-spinner-container {
+    margin-top: 0rem;
+    bottom: 0;
+    border-radius: 2rem;
+    text-align: center;
+  }
+  .customLoader {
+    height: 0.5rem;
+    background: #25bda4;
+    border-radius: 2rem;
+    margin-top: 0.5rem;
+    width: 2%;
+  }
+  .customLoader1 {
+    height: 0.5rem;
+    background: #25bda4;
+    border-radius: 2rem;
+    margin-top: 0.5rem;
+    width: 10%;
+  }
+  .customLoader2 {
+    height: 0.5rem;
+    background: #25bda4;
+    border-radius: 2rem;
+    margin-top: 0.5rem;
+    width: 20%;
+  }
+  .customLoader3 {
+    height: 0.5rem;
+    background: #25bda4;
+    border-radius: 2rem;
+    margin-top: 0.5rem;
+    width: 30%;
+  }
+  .customLoader4 {
+    height: 0.5rem;
+    background: #25bda4;
+    border-radius: 2rem;
+    margin-top: 0.5rem;
+    width: 40%;
+  }
+  .customLoader5 {
+    height: 0.5rem;
+    background: #25bda4;
+    border-radius: 2rem;
+    margin-top: 0.5rem;
+    width: 50%;
+  }
+  .customLoader6 {
+    height: 0.5rem;
+    background: #25bda4;
+    border-radius: 2rem;
+    margin-top: 0.5rem;
+    width: 60%;
+  }
+  .customLoader7 {
+    height: 0.5rem;
+    background: #25bda4;
+    border-radius: 2rem;
+    margin-top: 0.5rem;
+    width: 70%;
+  }
+  .customLoader8 {
+    height: 0.5rem;
+    background: #25bda4;
+    border-radius: 2rem;
+    margin-top: 0.5rem;
+    width: 80%;
+  }
+  .customLoader9 {
+    height: 0.5rem;
+    background: #25bda4;
+    border-radius: 2rem;
+    margin-top: 0.5rem;
+    width: 90%;
+  }
+  .customLoader10 {
+    height: 0.5rem;
+    background: #25bda4;
+    border-radius: 2rem;
+    margin-top: 0.5rem;
+    width: 100%;
+  }
+}

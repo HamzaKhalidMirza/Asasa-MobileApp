@@ -1,0 +1,49 @@
+<div class="mt"></div>
+<div class="listViewMainDiv" *ngFor="let ad of ads; let i = index">
+  <asasa-heart
+    [ad]="ad"
+    [processingData]="processingData"
+    [index]="i"
+  ></asasa-heart>
+  <ion-row (click)="openDetails(ad)" class="ad" col-12>
+    <ion-col *ngIf="ad?.images.length > 0" col-5>
+      <img class="fade-in" src="{{ ad.images[0] }}" alt="loading" />
+    </ion-col>
+    <ion-col *ngIf="ad?.images.length == 0" col-5>
+      <img
+        *ngIf="ad?.property_Type_Name == 'House'"
+        class="noImg"
+        src="assets/imgs/housemodal.jpg"
+        alt="loading"
+      />
+      <img
+        *ngIf="ad?.property_Type_Name == 'Commercial'"
+        class="noImg"
+        src="assets/imgs/commercialmodal.jpg"
+        alt="loading"
+      />
+    </ion-col>
+    <ion-col class="detail" col-7>
+      <p class="priceDetail">
+        Rs. <span>{{ priceConverter(ad?.demand) }}</span>
+      </p>
+      <p class="locationDetail">
+        {{ ad?.location_data.location_data.location }}
+        <span *ngIf="ad?.location_data.location_data.location">, </span
+        >{{ ad?.city.city.city }}
+      </p>
+
+      <ion-item class="furtherDetail">
+        <p>{{ ad?.land_area }} {{ ad?.property_unit }}</p>
+        <p>
+          {{ ad?.property_types }}
+        </p>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <div class="fade_rule"></div>
+</div>
+
+<ion-infinite-scroll *ngIf="!stopLoader" (ionInfinite)="doInfinite($event)">
+  <ion-infinite-scroll-content></ion-infinite-scroll-content>
+</ion-infinite-scroll>

@@ -1,0 +1,128 @@
+<ion-content class="transparent"
+  ><div class="dismiss" (click)="dismiss()"></div>
+  <div class="filterContainer">
+    <ion-item>
+      <p>Filters</p>
+      <ion-icon
+        class="closeIcon"
+        (click)="dismiss()"
+        name="close"
+        item-end
+      ></ion-icon>
+    </ion-item>
+
+    <ion-label class="filterHeading">Price (Rs.) : </ion-label>
+
+    <ion-row col-12 class="price">
+      <ion-col col-6>
+        <ion-input
+          name="minPrice"
+          type="number"
+          autofocus
+          [(ngModel)]="minPrice"
+          placeholder="Min"
+          [ngClass]="{inValid: !priceValid }"
+          (keyup)="comparePrice()"
+        ></ion-input>
+      </ion-col>
+      <!-- <ion-col col-2> <p>-</p> </ion-col> -->
+      <ion-col col-6>
+        <ion-input
+          type="number"
+          [(ngModel)]="maxPrice"
+          placeholder="Max"
+          [ngClass]="{inValid: !priceValid  }"
+          name="maxPrice"
+          (keyup)="comparePrice()"
+        ></ion-input>
+      </ion-col>
+    </ion-row>
+    <hr />
+    <ion-item class="labelItem" no-lines>
+      <ion-label item-start class="filterHeading"
+        >Area ({{selectedType?.value}}) :
+      </ion-label>
+
+      <ion-select
+        item-end
+        required
+        placeholder="Select Area"
+        [(ngModel)]="selectedType"
+        interface="popover"
+        name="selectedType"
+      >
+        <ion-option
+          *ngFor="let types of areaTypes; let i = index"
+          (ionSelect)="index = i"
+          [value]="types"
+          >{{ types.type }}</ion-option
+        >
+      </ion-select>
+    </ion-item>
+
+    <ion-row col-12 class="area">
+      <ion-col col-6>
+        <ion-input
+          name="minArea"
+          type="number"
+          [(ngModel)]="minArea"
+          placeholder="Min Area"
+          [ngClass]="{inValid: !areaValid}"
+          (keyup)="compareArea()"
+        ></ion-input>
+      </ion-col>
+      <!-- <ion-col col-2> <p>-</p> </ion-col> -->
+      <ion-col col-6>
+        <ion-input
+          name="maxArea"
+          type="number"
+          [(ngModel)]="maxArea"
+          placeholder="Max Area"
+          [ngClass]="{inValid:!areaValid}"
+          (keyup)="compareArea()"
+        ></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <hr />
+    <ion-label *ngIf="homes" class="filterHeading">Beds : </ion-label>
+    <ul *ngIf="homes" class="unorderList">
+      <li *ngFor="let beds of beds; let i = index">
+        <button
+          class="outline"
+          outline
+          type="submit"
+          ion-button
+          (click)="selectBed(i)"
+          [ngClass]="{
+          btnNotSelected: !beds?.selected,
+          btnSelected: beds?.selected
+        }"
+        >
+          {{beds?.value |titlecase}}
+        </button>
+      </li>
+    </ul>
+
+    <div class="buttonFooter" ion-fixed>
+      <button
+        class="outline"
+        outline
+        type="submit"
+        (click)="reset()"
+        ion-button
+      >
+        RESET
+      </button>
+      <button
+        class="block"
+        type="submit"
+        (click)="dismissWithData()"
+        [disabled]="!priceValid || !areaValid"
+        ion-button
+      >
+        APPLY FILTERS
+      </button>
+    </div>
+  </div>
+</ion-content>

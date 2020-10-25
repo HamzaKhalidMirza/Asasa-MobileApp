@@ -1,0 +1,101 @@
+<ion-header>
+  <img class="closeIcon" (click)="dismiss()" src="assets/icon/close1.png" />
+</ion-header>
+<ion-content>
+  <div class="customerCare">
+    <img src="assets/icon/contact_us.png" />
+  </div>
+  <div *ngIf="contact" class="contactUs">
+    <h4>CONTACT US</h4>
+    <p>
+      You can reach us via <b>Email</b> , <b>Call</b> or leave a text on
+      <b>Whatsapp</b>.
+    </p>
+
+    <div class="whatsapp">
+      <a href="https://wa.me/+923111170111?text=''">
+        <ion-icon name="logo-whatsapp"></ion-icon> Whatsapp</a
+      >
+    </div>
+    <div class="call" (click)="showNumber()">
+      <ion-icon name="call"></ion-icon>
+      <a> Call Us!</a>
+    </div>
+
+    <div class="numbers" *ngIf="showNum">
+      <a href="tel:+923111170111">+92-311-1170111</a><br />
+    </div>
+  </div>
+  <div class="detailContent">
+    <p class="title">Email Us</p>
+    <form [formGroup]="ngForm" class="emailForm" (ngSubmit)="sendEmail()">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-12>
+            <ion-item style="padding: 0 10px">
+              <ion-label stacked>Name*</ion-label>
+              <ion-input
+                type="text"
+                formControlName="name"
+                class="login"
+                [ngClass]="{inValid: Name.invalid && (Name.dirty || Name.touched)}"
+                required
+              ></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col col-12>
+            <ion-item style="padding: 0 10px">
+              <ion-label stacked>Email*</ion-label>
+              <ion-input
+                type="text"
+                formControlName="email"
+                class="login"
+                [ngClass]="{inValid: Email.invalid && (Email.dirty || Email.touched)}"
+                required
+              ></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col col-12>
+            <ion-item style="padding: 0 10px">
+              <ion-label stacked>Phone*</ion-label>
+              <ion-input
+                type="text"
+                formControlName="phone"
+                class="login"
+                [ngClass]="{inValid: Phone.invalid && (Phone.dirty || Phone.touched)}"
+                required
+              ></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col col-12>
+            <ion-item style="padding: 0 10px">
+              <ion-label stacked>Type your Message*</ion-label>
+              <ion-textarea
+                type="text"
+                rows="4"
+                formControlName="message"
+                class="login"
+                [ngClass]="{inValid: Message.invalid && (Message.dirty || Message.touched)}"
+                required
+              ></ion-textarea>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12>
+            <button
+              shape="round"
+              [disabled]="!ngForm.valid"
+              ion-button
+              class="btnFooter"
+              type="submit"
+              full
+            >
+              Send Email!
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+</ion-content>

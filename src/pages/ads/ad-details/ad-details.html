@@ -1,0 +1,355 @@
+<ion-header>
+  <ion-item class="heading" no-lines
+    ><span id="propertyNo" item-start>PROPERTY ID: {{ adData?._id }}</span>
+    <span class="share" (click)="share()" item-end>
+      <img src="assets/icon/share.png" />
+    </span>
+    <a
+      item-end
+      class="navigation"
+      href="https://www.google.com/maps/search/?api=1&query={{adData?.location_data.marker_data.mlatitide}},{{adData?.location_data.marker_data.mlongitude}}"
+    >
+      <img src="assets/icon/gps.png" />
+    </a>
+    <span class="dismissIcon" (click)="dismiss()" item-end>
+      <img src="assets/icon/close1.png" />
+    </span>
+  </ion-item>
+</ion-header>
+<ion-content>
+  <div class="detailContent">
+    <div class="fixed">
+      <div>
+        <ion-segment (ionChange)="segmentChanged($event)" [(ngModel)]="topBar">
+          <ion-segment-button
+            *ngIf="adData?.images.length>0 && adData?.property_Type_Name != 'Plot'"
+            value="photo"
+          >
+            Photos
+          </ion-segment-button>
+
+          <ion-segment-button (click)="load360()" *ngIf="noVR" value="view">
+            Virtual Tour
+          </ion-segment-button>
+
+          <ion-segment-button *ngIf="adData?.video_link" value="video">
+            Videos
+          </ion-segment-button>
+          <ion-segment-button value="map"> Map </ion-segment-button>
+        </ion-segment>
+      </div>
+
+      <div class="segmentDiv" [ngSwitch]="topBar">
+        <div
+          [style.display]="topBar == 'map' ? 'block' : 'none'"
+          #map2
+          id="map2"
+        ></div>
+
+        <div
+          class="holds-the-iframe"
+          [style.display]="topBar == 'video' ? 'block' : 'none'"
+        >
+          <iframe
+            width="100%"
+            height="50vh"
+            style="width: 100%; height: 50vh; border: none;"
+            [src]="safeUrl"
+            frameborder="0"
+            allowfullscreen
+            class="iframe"
+          ></iframe>
+        </div>
+        <div
+          class="holds-the-iframe"
+          [style.display]="topBar == 'view' ? 'block' : 'none'"
+        >
+          <iframe
+            width="100%"
+            height="50vh"
+            style="width: 100%; height: 50vh; border: none;"
+            frameborder="0"
+            scrolling="yes"
+            (load)="iframeLoaded()"
+            allowfullscreen="false"
+            [src]="kuulaUrl"
+          ></iframe>
+        </div>
+
+        <div [style.display]="topBar == 'photo' ? 'block' : 'none'" id="photos">
+          <ion-slides
+            (click)="openGalary()"
+            *ngIf="adData?.images.length > 0"
+            pager="true"
+            speed="100"
+          >
+            <ion-slide *ngFor="let img of adData?.images">
+              <img class="fade-in" src="{{ img }}" />
+            </ion-slide>
+          </ion-slides>
+        </div>
+      </div>
+    </div>
+
+    <div class="totalDetails">
+      <ion-row class="mainDetailBlock" col-12>
+        <ion-col col-10>
+          <span class="span">
+            <p class="price">
+              <span>PKR </span> {{ priceConverter(adData?.demand) }}
+            </p>
+
+            <div class="locationDetailDiv">
+              <img src="assets/imgs/area.png" />
+
+              <p class="locationArea">
+                <span>
+                  {{adData?.land_area}} {{adData?.property_unit}},
+                  {{adData?.property_types}}
+                </span>
+              </p>
+            </div>
+            <div class="locationDetailDiv">
+              <img src="assets/imgs/pin.png" />
+
+              <p class="locationDetail">
+                {{ adData?.location_data?.marker_data?.sector}}
+                <span *ngIf="adData?.location_data?.marker_data.sector">,</span>
+
+                {{ adData?.location_data.location_data.location }}
+
+                <span>, </span>{{ adData?.city.city.city }}
+              </p>
+            </div>
+          </span>
+        </ion-col>
+        <ion-col col-2>
+          <asasa-heart
+            class="asasaHeart"
+            [ad]="adData"
+            [index]="i"
+          ></asasa-heart>
+        </ion-col>
+      </ion-row>
+
+      <ion-row
+        col-12
+        class="rooms mainDetailBlock"
+        *ngIf="adData?.property_Type_Name == 'House'"
+      >
+        <ion-col
+          *ngIf="adData?.bedrooms && adData?.bedrooms != 0"
+          class=""
+          col-4
+        >
+          <img src="assets/icon/bed.png" />
+          <p>
+            Bedroom: {{adData?.bedrooms}}
+          </p>
+        </ion-col>
+        <ion-col
+          *ngIf="adData?.bathrooms && adData?.bathrooms != 0"
+          class=""
+          col-4
+        >
+          <img src="assets/icon/bathroom.png" />
+          <p>Bathroom: {{adData?.bathrooms}}</p>
+        </ion-col>
+        <ion-col
+          *ngIf="adData?.kitchens && adData?.kitchen != 0"
+          class=""
+          col-4
+        >
+          <img src="assets/icon/kitchen.png" />
+          <p>Kitchen: {{adData?.kitchens}}</p>
+        </ion-col>
+        <ion-col
+          *ngIf="(adData?.drawing_room || adData?.guest_room)  && (adData?.guest_room != 0 || adData?.drawing_room != 0) "
+          class=""
+          col-4
+        >
+          <img src="assets/icon/lobby.png" />
+          <p>Guest Room: {{adData?.drawing_room || adData?.guest_room}}</p>
+        </ion-col>
+        <ion-col
+          *ngIf="adData?.dinning_room && adData?.dinning_room != 0"
+          class=""
+          col-4
+        >
+          <img src="assets/icon/dinningtable.png" />
+          <p>Dinning Room: {{adData?.dinning_room}}</p>
+        </ion-col>
+        <ion-col
+          *ngIf="adData?.tv_lounge && adData?.tv_lounge != 0"
+          class=""
+          col-4
+        >
+          <img src="assets/icon/multimedia.png" />
+          <p>TV Lounge: {{adData?.tv_lounge}}</p>
+        </ion-col>
+        <ion-col
+          *ngIf="adData?.parking_spaces_for_house && adData?.parking_spaces_for_house != 0"
+          class=""
+          col-4
+        >
+          <img src="assets/icon/car.png" />
+          <p>Parking Space: {{adData?.parking_spaces_for_house}}</p>
+        </ion-col>
+        <ion-col
+          *ngIf="adData?.servant_quarters && adData?.servant_quarters != 0"
+          class=""
+          col-4
+        >
+          <img src="assets/icon/bed.png" />
+          <p>Servant Quarter: {{adData?.servant_quarters}}</p>
+        </ion-col>
+        <ion-col
+          *ngIf="features.length>0"
+          class=""
+          (click)="collapseDiv()"
+          col-4
+        >
+          <img *ngIf="collapse" src="assets/icon/down.png" />
+          <img *ngIf="!collapse" src="assets/icon/right.png" />
+
+          <p>Other Rooms</p>
+        </ion-col>
+      </ion-row>
+
+      <span *ngIf="adData?.property_Type_Name == 'House'">
+        <ion-row
+          class="featuresRow mainDetailBlock"
+          *ngIf="adData?.property_Type_Name == 'House'"
+          col-12
+          [ngStyle]="{'display': collapse ? 'flex' : 'none' }"
+        >
+          <ion-col col-4 *ngFor="let room of features">
+            <span>
+              <img src="assets/icon/house/{{removeSpace(room?.value)}}.png" />
+
+              <p>
+                {{room?.value}}
+              </p>
+            </span>
+          </ion-col>
+        </ion-row>
+      </span>
+
+      <span *ngIf="adData?.property_Type_Name == 'Plot'">
+        <ion-row class="featuresRow mainDetailBlock" col-12>
+          <ion-col
+            col-4
+            *ngFor="let room of features|slice:0:5; let i = index; "
+          >
+            <span>
+              <img src="assets/icon/plot/{{removeSpace(room?.value)}}.png" />
+              <p>
+                {{room?.value}}
+              </p>
+            </span>
+          </ion-col>
+          <ion-col
+            *ngIf="features?.length>5"
+            class=""
+            (click)="collapseDiv()"
+            col-4
+          >
+            <span
+              ><img *ngIf="collapse" src="assets/icon/down.png" />
+              <img *ngIf="!collapse" src="assets/icon/right.png" />
+
+              <p>Other Features</p></span
+            >
+          </ion-col>
+        </ion-row>
+        <ion-row
+          class="featuresRow mainDetailBlock"
+          [ngStyle]="{'display': collapse ? 'flex' : 'none' }"
+          col-12
+        >
+          <ion-col
+            col-4
+            *ngFor="let room of features | slice: 5:features.length; let i = index; "
+          >
+            <span>
+              <img src="assets/icon/plot/{{removeSpace(room?.value)}}.png" />
+
+              <p>
+                {{room?.value}}
+              </p>
+            </span>
+          </ion-col>
+        </ion-row>
+      </span>
+      <span *ngIf="adData?.property_Type_Name == 'Commercial'">
+        <ion-row class="featuresRow mainDetailBlock" col-12>
+          <ion-col
+            col-4
+            *ngFor="let room of features|slice:0:5; let i = index; "
+          >
+            <span>
+              <img
+                src="assets/icon/commercial/{{removeSpace(room?.value)}}.png"
+              />
+              <p>
+                {{room?.value}}
+              </p>
+            </span>
+          </ion-col>
+          <ion-col
+            *ngIf="features?.length>5"
+            class=""
+            (click)="collapseDiv()"
+            col-4
+          >
+            <span
+              ><img *ngIf="collapse" src="assets/icon/down.png" />
+              <img *ngIf="!collapse" src="assets/icon/right.png" />
+
+              <p>Other Features</p></span
+            >
+          </ion-col>
+        </ion-row>
+        <ion-row
+          class="featuresRow mainDetailBlock"
+          [ngStyle]="{'display': collapse ? 'flex' : 'none' }"
+          col-12
+        >
+          <ion-col
+            col-4
+            *ngFor="let room of features | slice: 5:features.length; let i = index; "
+          >
+            <span>
+              <img
+                src="assets/icon/commercial/{{removeSpace(room?.value)}}.png"
+              />
+
+              <p>
+                {{room?.value}}
+              </p>
+            </span>
+          </ion-col>
+        </ion-row>
+      </span>
+      <div class="space"></div>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-row class="footer" col-12>
+    <ion-col col-4>
+      <a (click)="sendEmail()"><ion-icon name="mail"></ion-icon> EMAIL</a>
+    </ion-col>
+    <ion-col style="border-left: 1px solid white;" col-4>
+      <a href="tel:+923111170111"><ion-icon name="call"></ion-icon>CALL</a>
+    </ion-col>
+    <ion-col style="border-left: 1px solid white;" col-4>
+      <a
+        href="https://wa.me/+923111170111?text=I%20would%20like%20to%20inquire%20about%20your%20property%20Ref%20ID-{{
+          adData?._id
+        }}.%20Please%20contact%20me%20at%20your%20earliest%20convenience."
+        ><img class="whatsapp" src="assets/icon/whatsapp.png" />CHAT</a
+      >
+    </ion-col>
+  </ion-row>
+</ion-footer>

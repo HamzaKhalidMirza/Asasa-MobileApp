@@ -1,0 +1,116 @@
+<ion-menu [content]="content">
+  <ion-content class="sideMenu">
+    <div *ngIf="!userData" class="profile">
+      <img src="assets/imgs/asasa.png" />
+    </div>
+
+    <ion-row col-12 *ngIf="userData" class="profile">
+      <ion-col col-5 class="profilePic">
+        <img
+          [src]="userData?.image?.fileLocation ? userData?.image?.fileLocation : 'https://asasa.com/assets/images/profile_picture.jpg'"
+        />
+      </ion-col>
+      <ion-col col-7>
+        <p>{{userData?.name}}</p>
+        <p>{{userData?.email}}</p>
+
+        <p (click)="editProfile()" class="edit">
+          Edit Profile
+        </p>
+      </ion-col>
+    </ion-row>
+
+    <div class="searchBar">
+      <span class="in">
+        <ion-input
+          item-start
+          [(ngModel)]="myInput"
+          name="myInput"
+          placeholder="Search by Property ID"
+          type="number"
+        >
+        </ion-input>
+
+        <button
+          ion-button
+          icon-only
+          item-end
+          (click)="onCancel()"
+          type="submit"
+          [disabled]="!myInput"
+        >
+          <ion-icon name="search"></ion-icon>
+        </button>
+      </span>
+    </div>
+
+    <ion-item *ngIf="!loggedIn" class="item" (click)="login()" no-lines>
+      <img item-start src="assets/imgs/login.png" /> Sign In
+    </ion-item>
+    <hr *ngIf="!loggedIn" />
+
+    <ion-item menuClose class="item" (click)="architect()" no-lines>
+      <img item-start src="assets/imgs/architecture.png" /> Construction &
+      Architecture
+    </ion-item>
+    <hr />
+    <!--  *************** For Future ***************  -->
+    <!-- <ion-item menuClose class="item" (click)="projects()" no-lines>
+      <img item-start src="assets/imgs/project.png" /> Discover New Projects
+     
+    </ion-item>
+    <hr /> -->
+    <!--  *************** For Future ***************  -->
+    <ion-item (click)="openSellForm()" class="item" no-lines>
+      <img item-start src="assets/imgs/listproperty.png" /> Sell/Rent Out Your
+      Property
+    </ion-item>
+
+    <hr />
+    <ion-item (click)="contactUs()" class="item" no-lines>
+      <img item-start src="assets/imgs/contactus.png" /> Contact Us
+    </ion-item>
+
+    <hr />
+    <ion-item
+      menuClose
+      (click)="openTestimonial()"
+      *ngIf="loggedIn"
+      class="item"
+      no-lines
+    >
+      <img item-start src="assets/imgs/review.png" /> Testimonials
+      <ion-badge>{{ favouriteCount }}</ion-badge>
+    </ion-item>
+    <hr *ngIf="loggedIn" />
+    <ion-item
+      menuClose
+      (click)="openFavourites()"
+      *ngIf="loggedIn"
+      class="item"
+      no-lines
+    >
+      <img item-start src="assets/imgs/favourite.png" /> Favourites
+      <ion-badge>{{ favouriteCount }}</ion-badge>
+    </ion-item>
+    <hr *ngIf="loggedIn" />
+    <ion-item menuClose (click)="rateUsActionSheet()" class="item" no-lines>
+      <img item-start src="assets/imgs/star.png" /> Rate us
+    </ion-item>
+    <hr />
+    <ion-item menuClose (click)="locateUs()" class="item" no-lines>
+      <img item-start src="assets/imgs/pin.png" /> Locate us
+    </ion-item>
+    <hr />
+    <ion-item
+      *ngIf="loggedIn"
+      (click)="logout()"
+      menuClose
+      class="item"
+      no-lines
+    >
+      <img item-start src="assets/imgs/logout.png" /> Logout
+    </ion-item>
+  </ion-content>
+</ion-menu>
+<ion-nav #content [root]="rootPage"></ion-nav>

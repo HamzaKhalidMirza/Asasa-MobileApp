@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="header">
+    <img src="{{projectCity?.image}}" />
+    <p>{{projectCity?.city}} Projects</p>
+  </div>
+  <div class="list">
+    <ion-row *ngFor="let proj of projects" (click)="openDetails(proj)" col-12>
+      <ion-col col-12>
+        <img class="mainImg" [src]="proj?.files[0].fileLocation" />
+      </ion-col>
+      <ion-col *ngFor="let img of proj?.files  | slice:0:4">
+        <img class="subImg" [src]="img?.fileLocation" />
+      </ion-col>
+      <ion-col col-12 class="projName">{{proj?.projectName}}</ion-col>
+
+      <ion-col col-6>
+        <p class="head">City</p>
+        <p class="info">{{projectCity?.city}}</p></ion-col
+      >
+
+      <ion-col col-6>
+        <p class="head">Locality</p>
+        <p class="info">{{proj?.locality}}</p>
+      </ion-col>
+
+      <ion-col>
+        <!-- <p class="head">Types</p>
+        <p class="info">{{proj?.Type}}</p> -->
+
+        <button ion-button outline>For More Details</button>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

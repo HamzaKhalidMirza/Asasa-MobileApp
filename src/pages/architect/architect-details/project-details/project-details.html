@@ -1,0 +1,15 @@
+<ion-content padding>
+  <img class="closeIcon" (click)="dismiss()" src="assets/icon/close1.png" />
+  <div class="background">
+    <ion-slides pager="true" speed="100" #slides *ngIf="images">
+      <ion-slide *ngFor="let img of images ">
+        <img [src]="img" />
+      </ion-slide>
+    </ion-slides>
+    <ion-slides pager="true" speed="100" #slides *ngIf="projectImages">
+      <ion-slide *ngFor="let img of projectImages">
+        <img class="fade-in" [src]="img.fileLocation" />
+      </ion-slide>
+    </ion-slides>
+  </div>
+</ion-content>

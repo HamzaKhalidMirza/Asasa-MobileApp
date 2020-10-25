@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>About {{architects?.name}}</ion-title>
+    <img class="closeIcon" (click)="dismiss()" src="assets/icon/close1.png" />
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="coverPic">
+    <img *ngIf="!cover" src="assets/imgs/arc2.jpg" />
+    <img *ngIf="cover" [src]="cover" />
+  </div>
+
+  <div class="profilePic">
+    <img [src]="profile" />
+  </div>
+
+  <p class="head">
+    {{architects?.name| titlecase}}
+  </p>
+  <div class="expertise">
+    <ion-badge color="dark" *ngFor="let expert of expertise"
+      >{{expert}}</ion-badge
+    >
+  </div>
+  <div class="contact">
+    <button (click)="sendEmail()" ion-button outline>
+      Contact
+    </button>
+  </div>
+  <p class="details">
+    {{description}}
+  </p>
+
+  <p class="galleryhead">PROJECTS</p>
+
+  <div class="images">
+    <div class="one-image" *ngFor="let p of project; let i = index">
+      <p>{{p?.pname }}</p>
+      <img [src]="p?.images[0].fileLocation" (click)="openDetails(p?.images)" />
+    </div>
+  </div>
+
+  <div class="empty" *ngIf="project?.length == 0">
+    <p>
+      No Project Found!
+    </p>
+  </div>
+</ion-content>

@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-row class="menuRow" col-12>
+    <ion-col col-2>
+      <button class="menuBtn" menuToggle icon-only>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-col>
+    <ion-col col-10>
+      <div (click)="searchModal()" class="search_block">
+        <div class="filterBadges">
+          <div class="cityBadge">
+            <ion-badge class="search" *ngIf="!city"
+              ><ion-icon name="search"></ion-icon> Search...</ion-badge
+            >
+            <ion-badge> {{ city | titlecase}} &nbsp;</ion-badge>
+          </div>
+          <div *ngIf="formattedAddress" class="location">
+            <ion-badge> {{ formattedAddress | titlecase}}</ion-badge>
+          </div>
+
+          <ion-badge>{{purpose | titlecase}} </ion-badge>
+          <ion-badge *ngIf="filters?.type && !filters?.subType">
+            {{filters?.type | titlecase}}</ion-badge
+          >
+          <ion-badge *ngIf="filters?.subType">
+            {{filters?.subType.title | titlecase}}</ion-badge
+          >
+        </div>
+      </div>
+
+      <img
+        class="closeIcon"
+        *ngIf="formattedAddress || city"
+        (click)="resetLocation()"
+        src="assets/icon/close1.png"
+      />
+    </ion-col>
+  </ion-row>
+</ion-header>
+<ion-content>
+  <ion-tabs #myTabs tabsLayout="icon-start" tabsPlacement="top">
+    <ion-tab
+      tabIcon="map"
+      (ionSelect)="getSelectedTab()"
+      tabTitle="Map"
+      [root]="tab1"
+    ></ion-tab>
+    <ion-tab
+      tabIcon="list"
+      (ionSelect)="getSelectedTab()"
+      tabTitle="List"
+      [root]="tab2"
+    ></ion-tab>
+    <ion-tab
+      tabIcon="ios-funnel-outline"
+      tabTitle="Filter"
+      (ionSelect)="filterModal()"
+    ></ion-tab>
+  </ion-tabs>
+
+  <div class="btnAds"></div>
+
+  <div class="select_block"></div>
+
+  <div class="homeBtns">
+    <button
+      *ngIf="isMap"
+      (click)="changeMapView()"
+      ion-button
+      class="mapView"
+      icon-only
+    >
+      <ion-icon
+        [ngClass]="{ satelite: !sateliteView, roadmap: sateliteView }"
+        name="md-globe"
+      ></ion-icon>
+    </button>
+  </div>
+</ion-content>

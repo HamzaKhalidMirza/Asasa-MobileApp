@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>ARCHITECTS</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <img src="assets/imgs/comingsoon.png" />
+</ion-content>
+<!-- <ion-content>
+  <div class="headerImg">
+    <p>
+      Asasa.com gives you a platform to visit portfolios of the top-notch
+      architects from all over Pakistan and select the one that suits you best
+      to design your Dream Home. We've the most experienced architects with us
+      on board, See their past works here below and let us know how can we
+      facilitate you to design your home so you can enjoy the best living
+      experience
+    </p>
+  </div>
+
+  <ion-searchbar
+    placeholder="Search by city..."
+    [(ngModel)]="searchInput"
+  ></ion-searchbar>
+  <ion-row col-12>
+    <ion-col *ngFor="let arc of architects | filter: 'city':searchInput" col-6>
+      <ion-card
+        (click)="openDetails(arc?._id, arc?.image?.fileLocation, arc?.description, arc?.expertise)"
+        class="profile"
+      >
+        <div class="backgroundColor"></div>
+        <div class="flexCenter">
+          <div class="borderRadius">
+            <img src="{{arc?.image?.fileLocation}}" />
+          </div>
+          <div>
+            <p class="name">{{arc?.name | titlecase}}</p>
+            <p class="location">{{arc?.city | titlecase}}</p>
+          </div>
+        </div>
+
+        <div class="view">
+          <button ion-button round color="dark">
+            View Profile
+          </button>
+        </div>
+      </ion-card>
+    </ion-col>
+
+    <ion-col *ngIf="notFound" col-12>
+      <img src="assets/icon/404.png" />
+    </ion-col>
+  </ion-row>
+</ion-content> -->

@@ -1,0 +1,342 @@
+@import "./css/intlTelInput.scss";
+
+page-login {
+  .scroll-content {
+    background: #f3f8fd;
+  }
+
+  .closeIcon {
+    filter: brightness(0) invert(0);
+    padding: 1rem 1.5rem 1rem;
+    margin: 0rem !important;
+    height: 3.5rem;
+    position: absolute;
+    right: 5px;
+    top: 10px;
+  }
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    margin-top: 12vh;
+    img {
+      height: 16rem;
+    }
+    .circle1 {
+      position: absolute;
+      height: 16rem;
+      width: 16rem;
+      border-radius: 100px;
+      background: #8080807a;
+      top: 60px;
+      left: 70px;
+      z-index: -1;
+    }
+    .circle2 {
+      position: absolute;
+      height: 14rem;
+      width: 14rem;
+      border-radius: 100px;
+      background: #8080807a;
+      top: 105px;
+      left: 150px;
+      z-index: -1;
+    }
+  }
+
+  ion-input {
+    // border-bottom: 2px solid #38bba2;
+    // border-bottom: 2px solid #2e759d;
+    background: rgba(255, 255, 255, 0);
+    // padding-left: 6rem;
+  }
+
+  ion-item {
+    ion-label {
+      margin-left: 8px !important;
+    }
+    background-color: transparent !important;
+  }
+  .text-input {
+    color: black;
+  }
+
+  .emailForm {
+    margin: 2rem 1rem 0;
+
+    .btnFooter {
+      background-color: #2e759d !important;
+      border-radius: 2px !important;
+      box-shadow: 0px 0px 6px 0px #2a5067;
+      //new design
+      width: 100%;
+      margin: 5rem 0rem;
+    }
+
+    .item-inner {
+      margin-left: 0 !important;
+      padding-right: 0 !important;
+    }
+
+    ion-item {
+      position: relative;
+      margin-bottom: 1rem;
+      background-color: whitesmoke !important;
+      border-radius: 5px;
+      box-shadow: 0px 0px 6px 0px #2a5067;
+      height: 42px;
+      ion-icon {
+        position: absolute;
+        // left: 2rem;
+        z-index: 14;
+        top: 50%;
+        transform: translate(0, -50%);
+      }
+    }
+  }
+
+  .item {
+    padding: 0rem;
+    color: black;
+  }
+  .err {
+    color: red;
+    text-align: right;
+  }
+
+  .btnFooter:active {
+    opacity: 0.8;
+  }
+
+  .mt3rem {
+    margin-top: 3rem;
+  }
+
+  .mb3rem {
+    margin-bottom: 3rem;
+  }
+
+  .colorWhite {
+    margin-top: 1rem;
+    color: black;
+  }
+
+  .verificationDiv {
+    text-align: center;
+    ::placeholder {
+      color: gray;
+      opacity: 1; /* Firefox */
+    }
+
+    .btn {
+      width: 100%;
+      background-color: #2e759d !important;
+      border-radius: 2px !important;
+    }
+
+    .resend {
+      color: black;
+      margin: 4.5rem 0 3rem;
+      font-weight: 100;
+      span {
+        color: black;
+        text-decoration: underline;
+        font-weight: bold;
+      }
+    }
+
+    .resendCode {
+      line-height: 22px;
+      margin: 4.5rem 0 3rem;
+      span:nth-child(1) {
+        color: #888888;
+      }
+      span:nth-child(3) {
+        color: #3bbca4;
+        font-weight: 600;
+        text-decoration: underline;
+      }
+    }
+
+    .ionInput {
+      border-bottom: 2px solid #2e759d;
+      margin-left: 5px;
+      margin-right: 5px;
+      padding: 0 !important;
+      background: transparent;
+
+      .text-input {
+        text-align: center;
+        margin: 11px 8px 11px 0px !important;
+        letter-spacing: 10px;
+        color: black;
+        font-weight: 500;
+        font-size: 16px;
+      }
+    }
+  }
+
+  .verifyText {
+    font-weight: 100;
+    text-align: center;
+    color: black;
+    font-size: 14px;
+    padding: 2rem 1rem 0rem 1rem;
+    line-height: 22px;
+    span {
+      font-size: 26px;
+      font-weight: 400;
+      color: #3bbca4;
+    }
+  }
+  .phoneText {
+    font-weight: 100;
+    text-align: left;
+    color: #8c8c8c;
+    font-size: 14px;
+    padding: 2rem 3rem 0rem 3rem;
+    text-align: center;
+    line-height: 22px;
+
+    span {
+      font-size: 26px;
+      font-weight: 400;
+      color: #3bbca4;
+    }
+    b {
+      color: black;
+    }
+  }
+
+  .error {
+    animation: shake 0.5s;
+    animation-iteration-count: 1s;
+    border-bottom: 2px solid #dc3545 !important;
+  }
+
+  @keyframes shake {
+    0% {
+      transform: translate(1px, 1px) rotate(0deg);
+    }
+    10% {
+      transform: translate(-1px, -2px) rotate(-1deg);
+    }
+    20% {
+      transform: translate(-3px, 0px) rotate(1deg);
+    }
+    30% {
+      transform: translate(3px, 2px) rotate(0deg);
+    }
+    40% {
+      transform: translate(1px, -1px) rotate(1deg);
+    }
+    50% {
+      transform: translate(-1px, 2px) rotate(-1deg);
+    }
+    60% {
+      transform: translate(-3px, 1px) rotate(0deg);
+    }
+    70% {
+      transform: translate(3px, 1px) rotate(-1deg);
+    }
+    80% {
+      transform: translate(-1px, -1px) rotate(1deg);
+    }
+    90% {
+      transform: translate(1px, 2px) rotate(0deg);
+    }
+    100% {
+      transform: translate(1px, -2px) rotate(-1deg);
+    }
+  }
+
+  .customCard {
+    margin: 0rem 2rem 1rem;
+    border-radius: 4px;
+    position: relative;
+    padding-top: 1rem;
+  }
+
+  // .wave {
+  //   width: 974px;
+  //   height: 861px;
+  //   position: absolute;
+  //   top: -13%;
+  //   left: 50%;
+  //   margin-left: -456px;
+  //   margin-top: -595px;
+  //   border-radius: 36%;
+
+  //   background-image: linear-gradient(#36ab97, #264e61e6);
+
+  //   animation: wave 15s infinite linear;
+  //   z-index: 1;
+  // }
+
+  .wave {
+    width: 1000px;
+    height: 1025px;
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    margin-left: -500px;
+    margin-top: -500px;
+    border-radius: 35%;
+    background-image: linear-gradient(#36ab97, rgba(38, 78, 97, 0.901961));
+    animation: wave 15s infinite linear;
+    z-index: -100;
+  }
+
+  .wave1 {
+    width: 886px;
+    height: 861px;
+    position: absolute;
+    top: 72%;
+    z-index: -102;
+    left: 50%;
+    margin-left: -649px;
+    margin-top: -1096px;
+    border-radius: 35%;
+
+    background-image: linear-gradient(
+      #36ab97,
+      rgba(38, 78, 97, 0.9019607843137255)
+    );
+
+    animation: wave 15s infinite linear;
+  }
+
+  @keyframes wave {
+    from {
+      transform: rotate(0deg);
+    }
+    from {
+      transform: rotate(360deg);
+    }
+  }
+
+  .iti-flag {
+    background-image: url("../assets/imgs/flags/flags.png");
+  }
+
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .iti-flag {
+      background-image: url("../assets/imgs/flags/flags@2x.png");
+    }
+  }
+
+  .telInput {
+    width: 85vw;
+    height: 40px;
+    color: #000;
+    border-radius: 7px;
+    outline: 0;
+    border: none;
+    background: rgba(191, 191, 191, 0.3686274509803922);
+    box-shadow: -1px 2px 11px 0 rgba(0, 0, 0, 0.36);
+  }
+
+  .hasError {
+    border: 1px solid rgba(255, 0, 0, 0.5);
+  }
+}

@@ -1,0 +1,111 @@
+page-ads-view {
+  ion-content {
+    background-color: #f7f7f7 !important;
+  }
+
+  // .scroll-content {
+  //   padding-bottom: 7rem;
+  // }
+
+  .item-inner {
+    border-top: 0px !important;
+    border-left: 0px !important;
+    border-right: 0px !important;
+    border-bottom: 0px !important;
+  }
+
+  .row:active {
+    opacity: 0.8;
+  }
+
+  .notFound {
+    text-align: center;
+    text-align: center;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    img {
+      width: 10rem;
+    }
+    p {
+      font-size: 2rem;
+      font-weight: 500;
+    }
+  }
+
+  .sort {
+    [col-6] {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .scrollToTop {
+    position: fixed;
+    bottom: 6rem;
+    height: 5rem;
+    width: 5rem;
+    background: #2a5067;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+    opacity: 0.7;
+    z-index: 2 !important;
+    right: 6%;
+  }
+
+  .headerItem {
+    color: white;
+    background-color: #0c6494;
+    margin-top: 89px;
+
+    .htl {
+      left: 25%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 1rem !important;
+    }
+    .fa {
+      position: absolute;
+      top: 50%;
+      left: 23px;
+      transform: translate(-5%, -50%);
+      z-index: 10;
+    }
+    .select-placeholder,
+    .select-text {
+      color: white;
+      margin-top: -3.25px;
+    }
+    ion-select {
+      height: 2.5rem;
+      max-width: 100%;
+      background: transparent;
+      border: 1px solid white;
+      border-radius: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 0;
+      top: 50%;
+      transform: translate(0%, -50%);
+      position: absolute;
+      padding: 0px 6px 0px 20px !important;
+    }
+
+    i {
+      color: white;
+    }
+    .select-icon {
+      display: none;
+    }
+  }
+
+  ion-label {
+    margin: 0px !important;
+  }
+}

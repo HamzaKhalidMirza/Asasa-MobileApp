@@ -1,0 +1,215 @@
+page-home-components {
+  ion-content {
+    position: fixed;
+  }
+  ion-icon {
+    color: white;
+  }
+  .scroll {
+    height: 100%;
+  }
+  .menuBtn {
+    background-color: transparent;
+    margin-left: -1rem;
+    ion-icon {
+      font-size: 3.5rem;
+      padding: 0 0.4em;
+    }
+  }
+
+  .tabbar {
+    opacity: 1 !important;
+    top: 88px !important;
+    .tab-button {
+      min-height: 34px !important;
+    }
+
+    .tab-button-icon {
+      margin-top: 0px !important;
+      margin-bottom: 2px !important;
+      min-width: 35px !important;
+      height: 18px !important;
+      font-size: 20px !important;
+    }
+    // .tab-button-text {
+    //   // margin-top: 2px !important;
+    //   // margin-bottom: 4px !important;
+    // }
+  }
+  .menuRow {
+    position: absolute;
+    top: 0rem;
+    background: #0a6492;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%);
+    z-index: 5 !important;
+    font-size: 1.5rem;
+    height: 88px;
+    p {
+      margin-top: 0rem;
+    }
+    [col-8] {
+      padding: 0px !important;
+    }
+    [col-10] {
+      display: flex;
+      align-items: center;
+    }
+    [col-2] {
+      display: flex;
+    }
+
+    .search_block {
+      width: 90%;
+    }
+  }
+  .search_block:active {
+    opacity: 0.8;
+  }
+
+  .filterCol {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .filter {
+      font-size: 3rem;
+
+      font-weight: bolder;
+    }
+
+    .filter:active {
+      opacity: 0.5;
+    }
+  }
+  .cityBadge {
+    display: flex;
+    ion-badge {
+      font-size: 16px !important;
+      font-weight: 400 !important;
+    }
+  }
+
+  .closeIcon {
+    position: absolute;
+    right: 2px;
+    top: 50%;
+    font-size: 4.5rem;
+    padding: 1rem;
+    transform: translate(0, -50%);
+    filter: brightness(0) invert(1);
+    height: 4rem;
+  }
+  .closeIcon:active {
+    opacity: 0.6;
+  }
+  .filterBadges {
+    .search {
+      display: flex;
+      align-items: center;
+      ion-icon {
+        padding-right: 0.5rem;
+      }
+    }
+
+    .location {
+      display: flex;
+    }
+    ion-badge {
+      margin: 1px;
+      background-color: #0a6492;
+      min-width: 5rem;
+      overflow: hidden;
+      white-space: nowrap;
+      /* overflow: hidden !important; */
+      font-weight: 300;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-overflow: ellipsis;
+    }
+  }
+  .goog-slider-horizontal {
+    // margin: 13rem 10px !important;
+    margin: 14rem 10px !important;
+  }
+
+  .adsBtnDiv {
+    z-index: 20 !important;
+
+    .adBtn {
+      border-radius: 5px;
+      padding: 0 1rem;
+      height: 2em;
+      font-size: 1.4rem;
+      margin: 0rem;
+      width: 6rem;
+      background-color: #0a6492;
+    }
+    .button:hover:not(.disable-hover) {
+      background-color: darkgray;
+    }
+    ion-badge {
+      background-color: #25bda4;
+      color: white;
+      position: absolute;
+      right: -1rem;
+      top: 0rem;
+      border-radius: 2.5rem;
+      width: 100%;
+    }
+  }
+
+  .homeBtns {
+    position: absolute;
+    top: 15rem;
+    left: 40px;
+    transform: translate(-50%, -50%);
+    z-index: 200;
+  }
+
+  .mapView {
+    background: #dadada;
+
+    z-index: 5 !important;
+    border-radius: 5px;
+
+    height: 2em;
+    font-size: 1.4rem;
+
+    background-color: #0a6492;
+
+    padding: 0;
+    margin: 5px 0;
+    width: 6rem;
+  }
+  .satelite {
+    color: white !important;
+  }
+  .roadmap {
+    color: #25bda4 !important;
+  }
+  .button.activated {
+    background: #dadada;
+  }
+
+  .tab-button[aria-selected="true"] {
+    color: #0a6492 !important;
+    ion-icon {
+      color: #0a6492 !important;
+    }
+  }
+
+  .labels {
+    font-size: 2rem;
+    color: white;
+  }
+
+  .block {
+    display: block;
+    transition: 0.09s all linear;
+  }
+  .none {
+    display: none;
+    transition: 0.09s all linear;
+  }
+}

@@ -1,0 +1,48 @@
+<ion-content #scrollableContent (ionScroll)="getScroll($event)">
+  <ion-item class="headerItem">
+    <span class="dropDown" item-start>
+      <i class="fa fa-sort" aria-hidden="true"></i>
+      <ion-select
+        placeholder="Sort"
+        (ngModelChange)="sortArray($event)"
+        interface="popover"
+        [(ngModel)]="sort"
+      >
+        <ion-option value="area">Area</ion-option>
+        <ion-option value="demand">Price</ion-option>
+      </ion-select>
+      <ion-select
+        *ngIf="sort"
+        class="htl"
+        placeholder="Low - High"
+        (ngModelChange)="sortArray($event)"
+        interface="popover"
+        [(ngModel)]="highAndLow"
+      >
+        <ion-option value="lth">Low - High</ion-option>
+        <ion-option value="htl">High - Low</ion-option>
+      </ion-select>
+    </span>
+
+    <span item-end>{{ lazyLoadedData?.length }} Results</span>
+  </ion-item>
+  <div class="notFound" *ngIf="ads?.length == 0">
+    <img src="assets/icon/404.png" />
+    <p>No Result Found!</p>
+  </div>
+  <asasa-listview
+    [ads]="ads"
+    [processingData]="processingData"
+    [stopLoader]="stopLoader"
+    (infiniteScrollTrigger)="infiniteScroll()"
+  ></asasa-listview>
+</ion-content>
+<div
+  (click)="scrollToTop()"
+  *ngIf="display"
+  ion-fixed
+  #scrollBtn
+  class="scrollToTop"
+>
+  <ion-icon name="ios-arrow-up"></ion-icon>
+</div>

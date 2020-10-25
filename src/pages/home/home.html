@@ -1,0 +1,33 @@
+<div
+  *ngIf="loadingElement"
+  #loadingProgressG_1
+  id="loadingProgressG_1"
+  class="loadingProgressG"
+></div>
+
+<div #map id="map"></div>
+
+<ion-row *ngIf="filters && filters?.type == 'all'" col-12 class="footerDetail">
+  <ion-col col-4 *ngIf="purpose == 'Buy'"
+    ><img src="assets/icon/resplotsale.png" />
+    <p>Residential Plot</p></ion-col
+  >
+  <ion-col col-4 *ngIf="purpose == 'Buy'"
+    ><img src="assets/icon/complotsale.png" />
+    <p>Commercial Plot</p></ion-col
+  >
+
+  <ion-col col-4
+    ><img src="assets/icon/cmsale.png" />
+    <p>Commercial</p></ion-col
+  >
+
+  <ion-col col-4
+    ><img src="assets/icon/houseBadge.png" />
+    <p>Homes</p></ion-col
+  >
+  <ion-col col-4
+    ><img src="assets/icon/apartmentBadge.png" />
+    <p>Apartment</p></ion-col
+  >
+</ion-row>

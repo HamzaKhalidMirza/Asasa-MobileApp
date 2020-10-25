@@ -1,0 +1,228 @@
+page-home-search {
+  .scroll-content {
+    padding-bottom: 0 !important;
+  }
+
+  .closeIcon {
+    filter: brightness(0) invert(1);
+    margin: 0 1rem 0 -0.4rem !important;
+    height: 2rem;
+  }
+  .toolbarHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #116594;
+    p {
+      color: white !important;
+      margin: 0px 8px !important;
+    }
+    ion-icon {
+      color: white;
+    }
+  }
+  .searchLoc {
+    background: white;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    margin-bottom: 10rem;
+  }
+
+  .ng-dropdown-panel {
+    left: 50%;
+    width: 90%;
+    transform: translate(-50%, 10px);
+    max-height: 19.5rem;
+    overflow: hidden;
+  }
+
+  .dismiss {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #116594;
+    z-index: -5;
+    opacity: 0.7;
+  }
+  .ng-select .ng-select-container {
+    font-size: 1.8rem;
+  }
+  .ng-select span {
+    color: #0a9266 !important;
+  }
+
+  form {
+    .text-input {
+      color: #0a9266 !important;
+      font-weight: 500;
+    }
+  }
+
+  .mr-2 {
+    padding: 0 1rem 1.25rem;
+  }
+  ion-segment {
+    padding: 0;
+  }
+
+  .purpose {
+    box-shadow: 0px 1px 25px 0px #989898;
+  }
+
+  .segment-button {
+    .label {
+      margin: 0px;
+    }
+    letter-spacing: 1px;
+    border-color: #25bda4 !important;
+    color: #25bda4 !important;
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+  }
+
+  .btn {
+    height: 3rem;
+    font-size: 12px;
+  }
+  .labelProp {
+    margin: 24px 0px 3px 8px;
+    color: darkgray;
+  }
+  .btnSelected {
+    border-radius: 4px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #116594;
+    color: #fdfdfd;
+    background-color: #25bda4;
+  }
+
+  .btnNotSelected {
+    border-color: #116594;
+    color: #116594;
+  }
+
+  .activated {
+    background-color: #25bda4 !important;
+  }
+
+  .segment-activated {
+    background-color: #25bda4 !important;
+    color: white !important;
+  }
+  .typeFilter {
+    box-shadow: 0px 8px 22px -4px #989898;
+    margin: 1rem 0px;
+    .segmentBtn {
+      height: 3.2rem !important;
+      line-height: 3rem !important;
+      border: 1px solid;
+      .label {
+        font-size: 12px !important;
+        text-transform: none;
+      }
+    }
+
+    .segment-button- {
+      border-color: #116594 !important;
+      color: #116594 !important;
+    }
+    .segment-activated {
+      background-color: #116594 !important;
+      color: white !important;
+    }
+  }
+
+  .ng-select .ng-select-container .ng-value-container .ng-placeholder {
+    font-size: 14px;
+  }
+
+  .ng-value-label {
+    font-size: 14px;
+  }
+
+  .buttonFooter {
+    display: flex;
+    padding: 0rem 0.6rem 1rem;
+    background: white;
+    bottom: 0;
+    width: 100%;
+
+    .outline {
+      border-color: #116594;
+      color: #116594;
+    }
+    .block {
+      color: #fff;
+      background-color: #116594;
+      width: 100%;
+    }
+  }
+
+  .scroll-content {
+    padding-bottom: 0 !important;
+  }
+
+  .otherFilters {
+    border-bottom: 6px solid #dcdcdc;
+    border-top: 6px solid #dcdcdc;
+    ion-input {
+      border: 1px solid gray;
+      padding: 0 1rem;
+      border-radius: 20px;
+    }
+    .activated {
+      background-color: transparent !important;
+    }
+    ion-col {
+      position: initial !important;
+    }
+
+    ion-select {
+      width: 100%;
+      max-width: 100%;
+      background: white;
+      border-radius: 3px;
+      color: #116594;
+      font-size: 1.5rem;
+      position: relative;
+      .select-icon-inner {
+        color: #116594 !important;
+      }
+    }
+  }
+
+  .bottomMargin {
+    // border-bottom: 6px solid #dcdcdc;
+    border-top: 0px !important;
+  }
+
+  .mb8rem {
+    margin-bottom: 8rem;
+  }
+
+  .unorderList {
+    border-radius: 0.4rem;
+    overflow: auto;
+    display: flex;
+    list-style: none;
+    margin: 1rem 0 8rem;
+    padding: 0 1rem;
+
+    .outline {
+      border-color: #116594;
+      color: #116594;
+    }
+  }
+
+  .filterHeading {
+    margin: 11px 8px 11px 8px;
+  }
+
+  .invalid {
+    border: 1px solid #ab0000 !important;
+  }
+}

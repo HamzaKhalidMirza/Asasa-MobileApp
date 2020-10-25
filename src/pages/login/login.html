@@ -1,0 +1,89 @@
+<ion-content>
+  <div class="wave"></div>
+  <div class="wave1"></div>
+
+  <img class="closeIcon" (click)="dismiss()" src="assets/icon/close1.png" />
+  <div class="logo">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <img *ngIf="!verifyNumber" src="assets/imgs/authentication.svg" />
+    <img *ngIf="verifyNumber" src="assets/imgs/authentication1.svg" />
+  </div>
+  <div class="customCard">
+    <p class="phoneText" *ngIf="!verifyNumber">
+      <span>
+        OTP Verification
+      </span>
+
+      <br />
+      We will send you an <b>One Time Password</b> on number.
+    </p>
+
+    <p *ngIf="!verifyNumber" style="color: #888888; text-align: center;">
+      Enter your phone number below.
+    </p>
+    <form
+      *ngIf="!verifyNumber"
+      #f="ngForm"
+      class="emailForm"
+      (ngSubmit)="sendVerificationCode()"
+    >
+      <input
+        #telInput
+        [ngClass]="{hasError: !hasErrorBoolean}"
+        class="telInput"
+        type="tel"
+        ionicTelInput
+        [ionicTelInputOptions]="{initialCountry: 'pk'}"
+        (hasError)="hasError($event)"
+        (ionicTelOutput)="getNumber($event)"
+      />
+
+      <p style="color: #888888; font-size: 10px;">
+        A 6 digit OPT will be sent via SMS to verify your phone number.
+      </p>
+
+      <button ion-button class="btnFooter mt3rem" type="submit" block>
+        CONTINUE
+      </button>
+    </form>
+
+    <p class="verifyText" *ngIf="verifyNumber">
+      <span>OTP Verification</span>
+      <br />
+      To complete your phone number verification, please enter the 6-digit code.
+    </p>
+
+    <div class="verificationDiv" *ngIf="verifyNumber">
+      <form (ngSubmit)="verify()">
+        <ion-item no-lines>
+          <ion-input
+            class="ionInput form-control"
+            [ngClass]="{ error: errorMessage }"
+            type="tel"
+            [(ngModel)]="code"
+            name="code"
+            placeholder=" - - - - - - "
+            required
+            maxlength="6"
+            autofocus
+            (keyup)="changeFocus()"
+          ></ion-input>
+        </ion-item>
+
+        <p *ngIf="!timeout" class="resend">
+          Resend Code in <span *ngIf="time>9">00:{{time}}</span>
+          <span *ngIf="time<=9">00:0{{time}}</span>
+        </p>
+        <p *ngIf="timeout" (click)="resend()" class="resendCode">
+          <span>Didn't receive the OTP?</span> <br />
+          <span>Resend OTP</span>
+        </p>
+
+        <button class="btn" [disabled]="code?.length<6" ion-button block>
+          Verify
+        </button>
+      </form>
+    </div>
+  </div>
+</ion-content>

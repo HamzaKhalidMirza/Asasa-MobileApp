@@ -1,0 +1,104 @@
+page-edit-profile {
+  ion-header {
+    background: #0a6492;
+    text-align: right;
+  }
+  .closeIcon {
+    filter: brightness(0) invert(1);
+    padding: 1rem 1.5rem 0.5rem;
+    margin: 0rem !important;
+    height: 3rem;
+  }
+
+  .headWithImg {
+    position: relative;
+    height: 26rem;
+    background: linear-gradient(rgba(30, 60, 60, 0.6)),
+      url(../assets/imgs/loginpage.jpg) no-repeat;
+    background-size: cover;
+  }
+
+  .section-divider {
+    height: 15px;
+    padding: 0;
+    margin-top: 2rem;
+    background: color($colors, appGreen);
+  }
+
+  .regForm {
+    padding: 2rem;
+    background: white;
+    .item-inner {
+      margin-left: 0 !important;
+      padding-right: 0 !important;
+    }
+
+    ion-item {
+      position: relative;
+    }
+  }
+
+  .item {
+    padding: 0rem;
+    color: black;
+  }
+  .err {
+    color: red;
+    text-align: right;
+  }
+
+  .btnFooter:active {
+    opacity: 0.8;
+  }
+
+  .mt3rem {
+    margin-top: 3rem;
+  }
+
+  .mb3rem {
+    margin-bottom: 3rem;
+  }
+
+  .colorWhite {
+    margin-top: 1rem;
+    color: white;
+  }
+
+  .invalid {
+    border-bottom: 1px solid #f32013;
+  }
+
+  button {
+    background-color: #2e759d !important;
+  }
+
+  .profileImg {
+    display: flex;
+    justify-content: center;
+    border-radius: 30rem;
+    position: absolute;
+    top: 6rem;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    z-index: 10;
+    border: 2px solid #25bda4;
+    img {
+      border-radius: 30rem;
+      height: 12rem;
+      width: 12rem;
+      object-fit: cover;
+    }
+    ion-icon {
+      color: #2a5067;
+      font-size: 3rem;
+      font-weight: 600;
+      padding: 0rem;
+      margin: 0rem !important;
+      position: absolute;
+      bottom: 0px;
+      z-index: 20;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+  }
+}

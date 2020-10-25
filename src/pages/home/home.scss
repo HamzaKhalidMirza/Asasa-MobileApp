@@ -1,0 +1,125 @@
+page-home {
+  ion-content {
+    position: fixed;
+  }
+  .scroll {
+    height: 100%;
+  }
+
+  #map {
+    width: 100%;
+    height: 100%;
+    z-index: 4 !important;
+  }
+
+  .footerDetail {
+    position: absolute;
+    bottom: 0;
+    z-index: 5 !important;
+    background: white;
+    img {
+      width: 1rem;
+    }
+    [col-4] {
+      display: flex;
+      align-items: center;
+      height: 6vw;
+      p {
+        padding-left: 0.5rem;
+        font-size: 1rem;
+        font-weight: 500;
+      }
+    }
+  }
+
+  #loadingProgressG {
+    width: 250px;
+    height: 19px;
+    overflow: hidden;
+    background-color: white;
+    margin: auto;
+    border-radius: 10px;
+    -o-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+  }
+
+  .loadingProgressG {
+    background-color: #0a6492;
+    margin-top: 108px;
+    margin-left: -250px;
+    animation-name: bounce_loadingProgressG;
+    -o-animation-name: bounce_loadingProgressG;
+    -ms-animation-name: bounce_loadingProgressG;
+    -webkit-animation-name: bounce_loadingProgressG;
+    -moz-animation-name: bounce_loadingProgressG;
+    animation-duration: 1s;
+    -o-animation-duration: 1s;
+    -ms-animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+    -ms-animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    -o-animation-timing-function: linear;
+    -ms-animation-timing-function: linear;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    width: 250px;
+    height: 19px;
+  }
+
+  @keyframes bounce_loadingProgressG {
+    0% {
+      margin-left: -250px;
+    }
+
+    100% {
+      margin-left: 250px;
+    }
+  }
+
+  @-o-keyframes bounce_loadingProgressG {
+    0% {
+      margin-left: -250px;
+    }
+
+    100% {
+      margin-left: 250px;
+    }
+  }
+
+  @-ms-keyframes bounce_loadingProgressG {
+    0% {
+      margin-left: -250px;
+    }
+
+    100% {
+      margin-left: 250px;
+    }
+  }
+
+  @-webkit-keyframes bounce_loadingProgressG {
+    0% {
+      margin-left: -250px;
+    }
+
+    100% {
+      margin-left: 250px;
+    }
+  }
+
+  @-moz-keyframes bounce_loadingProgressG {
+    0% {
+      margin-left: -250px;
+    }
+
+    100% {
+      margin-left: 250px;
+    }
+  }
+}

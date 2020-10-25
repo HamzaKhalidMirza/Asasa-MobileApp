@@ -1,0 +1,165 @@
+@import "theme/variables.scss";
+
+page-filter-modal {
+  .dismiss {
+    height: 100%;
+    background: #2a5067;
+    opacity: 0.6;
+  }
+
+  .transparent {
+    background-color: rgba(42, 80, 103, 0);
+  }
+
+  .filterContainer {
+    height: 46rem;
+    width: 95%;
+    background-color: #fff;
+    opacity: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 0.5rem;
+    .item {
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
+      padding: 0px;
+      margin-bottom: 1rem;
+
+      p {
+        font-size: 1.6rem;
+        color: #2a5067;
+        margin: 0 11px 2px;
+        font-weight: bold;
+        letter-spacing: 0.2rem;
+      }
+      ion-icon {
+        color: #2a5067;
+        font-size: 3rem;
+        font-weight: 600;
+        padding: 0.8rem;
+        margin: 0rem !important;
+      }
+      ion-icon:active {
+        color: #25bda4;
+      }
+    }
+  }
+  .filterHeading {
+    margin: 5px 8px 0px 8px !important;
+    font-weight: 400;
+  }
+  [col-2] {
+    p {
+      font-size: 1.5rem;
+      line-height: 0.5;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+
+  .btnReset {
+    background-color: #dc3545;
+  }
+  .text-input {
+    padding: 8px 0px 8px 5px;
+    border: 1px solid darkgray;
+    margin: 0px 0.5rem;
+    border-radius: 0.4rem;
+  }
+
+  .textInput {
+    padding: 8px 0px 8px 5px;
+    border: 1px solid darkgray;
+    margin: 0px 0.5rem;
+    border-radius: 0.4rem;
+  }
+
+  .danger {
+    color: map-get($colors, danger);
+  }
+  .dangerInput {
+    border: 1px solid map-get($colors, danger);
+  }
+
+  .buttonFooter {
+    display: flex;
+    padding: 1rem 6px;
+
+    bottom: 0;
+    width: 100%;
+
+    .outline {
+      border-color: #116594;
+      color: #116594;
+    }
+    .block {
+      color: #fff;
+      background-color: #116594;
+      width: 100%;
+    }
+  }
+
+  ion-select {
+    width: 100%;
+    max-width: 100%;
+    background: white;
+    border-radius: 3px;
+    color: #116594;
+    font-size: 1.5rem;
+    .select-icon-inner {
+      color: #116594 !important;
+    }
+  }
+
+  .labelItem {
+    margin-bottom: -1rem !important;
+  }
+
+  .item-cover {
+    display: none;
+  }
+
+  .unorderList {
+    border-radius: 0.4rem;
+    overflow: auto;
+
+    display: flex;
+    list-style: none;
+    margin: 1rem 0 0;
+    padding: 0 1rem;
+
+    .outline {
+      border-color: #116594;
+      color: #116594;
+    }
+  }
+  .btnSelected {
+    border-color: #116594;
+    color: #fdfdfd !important;
+    background-color: #25bda4 !important;
+  }
+
+  .btnNotSelected {
+    border-color: #116594;
+    color: #116594;
+  }
+
+  .inValid {
+    .text-input {
+      border: 1px solid #d74338;
+    }
+  }
+
+  .valid {
+    .text-input {
+      border: 1px solid darkgray !important;
+    }
+  }
+
+  .text-input {
+    color: #0a9266 !important;
+    font-weight: 500;
+  }
+}

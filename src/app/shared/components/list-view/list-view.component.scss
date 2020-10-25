@@ -1,0 +1,133 @@
+@import "theme/variables.scss";
+asasa-listview {
+  .fade_rule {
+    height: 1px;
+    width: 70vw;
+    margin: 5px auto;
+    background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0),
+      #38bba3,
+      rgba(0, 0, 0, 0)
+    );
+  }
+  .mt {
+    margin-top: 1.5rem;
+  }
+  .ad {
+    img {
+      border-radius: 0.5rem;
+      height: 9rem;
+      object-fit: cover;
+      filter: brightness(0.9);
+    }
+    padding: 0 1rem;
+    p {
+      font-style: normal !important;
+      margin: 0;
+    }
+    .detail {
+      .priceDetail {
+        font-family: "TrajanProBold";
+        color: #0c6494 !important;
+        font-size: 15px;
+        margin: 0;
+        font-weight: bold;
+      }
+      .locationDetail {
+        font-family: "JaveneseText";
+        color: #2b7a78 !important;
+        font-size: 12px;
+        width: 16rem;
+        line-height: 18px;
+        margin: 4px 0;
+      }
+      .furtherDetail {
+        // color: #0a6492 !important;
+        font-family: "BankGothicMd" !important;
+
+        font-style: normal;
+        margin: 0;
+        background: transparent;
+        padding: 0;
+        padding-right: 10vw;
+        min-height: 1rem;
+        .item-inner {
+          border-top: 0px !important;
+          border-left: 0px !important;
+          border-right: 0px !important;
+          border-bottom: 0px !important;
+        }
+        p:nth-child(1) {
+          color: #008c76 !important;
+        }
+        p:nth-child(2) {
+          color: #ba7600 !important;
+        }
+        p {
+          font-size: 14px;
+          font-style: normal;
+          margin: 0;
+          margin-bottom: 0.2rem;
+        }
+        span {
+          margin: 0;
+          margin-bottom: 0.5rem;
+        }
+      }
+
+      .mt-1 {
+        margin-top: 1rem;
+      }
+    }
+    img {
+      width: 100%;
+
+      border: 0;
+      max-height: 25rem;
+    }
+  }
+  .price {
+    font-size: 1.4rem;
+    span {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #25bda4;
+    }
+  }
+
+  .fade-in {
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 1s;
+    background-image: url(../assets/imgs/thumbnail.jpg);
+    background-size: cover;
+  }
+
+  @keyframes fadeInOpacity {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .detail {
+    font-style: italic;
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+  }
+
+  .listViewMainDiv {
+    position: relative;
+    asasa-heart {
+      position: absolute;
+      right: 0;
+      z-index: 10000;
+      top: 1rem;
+    }
+  }
+}

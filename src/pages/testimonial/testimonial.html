@@ -1,0 +1,67 @@
+<ion-header>
+  <img class="closeIcon" (click)="closeModal()" src="assets/icon/close1.png" />
+</ion-header>
+<ion-content>
+  <div class="headWithTitle">
+    <div class="title">
+      <h1>Testimonial</h1>
+    </div>
+  </div>
+
+  <div class="section section-divider"></div>
+
+  <form
+    padding
+    [formGroup]="ngForm"
+    class="regForm"
+    (ngSubmit)="postTestimoial()"
+  >
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label stacked>Purpose of Visit</ion-label>
+            <ion-input
+              type="text"
+              name="purpose"
+              [(ngModel)]="purpose"
+              formControlName="purpose"
+              [class.invalid]="Purpose.invalid && (Purpose.dirty || Purpose.touched)"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label stacked>Type your message here...</ion-label>
+            <ion-textarea
+              type="text"
+              rows="5"
+              [(ngModel)]="message"
+              name="note"
+              autocomplete="on"
+              autocorrect="on"
+              formControlName="message"
+              [class.invalid]="Message.invalid && (Message.dirty || Message.touched)"
+            ></ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row class="mt1rem">
+        <ion-col col-12>
+          <button
+            round
+            block
+            [disabled]="!ngForm.valid"
+            class="btnFooter"
+            type="submit"
+            ion-button
+          >
+            Add Testimonial
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

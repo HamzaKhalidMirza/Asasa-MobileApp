@@ -1,0 +1,375 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{detail?.projectName}}</ion-title>
+    <ion-icon (click)="dismiss()" name="close"></ion-icon>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-segment class="fixed" ion-fixed [(ngModel)]="projectDetail">
+    <ion-segment-button value="photo">
+      Photos
+    </ion-segment-button>
+    <ion-segment-button value="map">
+      Map
+    </ion-segment-button>
+    <ion-segment-button value="detail">
+      Details
+    </ion-segment-button>
+  </ion-segment>
+
+  <div class="segmentSwitch" [ngSwitch]="projectDetail">
+    <div
+      id="mapProject"
+      #mapProject
+      [style.display]="projectDetail == 'map' ? 'block' : 'none'"
+    ></div>
+    <ion-slides *ngSwitchCase="'photo'" pager="true" speed="100" #slides>
+      <ion-slide *ngFor="let img of detail?.files ; let i = index">
+        <img [src]="img?.fileLocation" />
+      </ion-slide>
+    </ion-slides>
+
+    <div class="detailSegment" *ngSwitchCase="'detail'">
+      <div class="projectDetails">
+        <div id="overview"></div>
+        <div class="project-view">
+          <!--New Project View Description Start -->
+          <section class="overview container">
+            <div class="main-heading">Overview</div>
+            <div class="content">
+              <!-- Detail and Description -->
+              <section class="detail clearfix ">
+                <h3 class="sub-heading">
+                  Details &amp; Description
+                </h3>
+                <ul class="ul">
+                  <li>
+                    <div class="category leftt">Asasa Id</div>
+                    <div class="value leftt">{{detail?._id}}</div>
+                  </li>
+                  <li>
+                    <div class="category leftt">City</div>
+                    <div class="value leftt">
+                      {{JSONparse(detail?.city).city}}
+                    </div>
+                  </li>
+                  <li>
+                    <div class="category leftt">Locality</div>
+                    <p class="value leftt twoLinesP">{{detail?.locality}}</p>
+                  </li>
+                  <li>
+                    <div class="category leftt">Price</div>
+                    <div class="value leftt">
+                      <span>
+                        PKR
+                      </span>
+
+                      {{getDemand(detail?.minPrice)}} to
+                      {{getDemand(detail?.maxPrice)}}
+                    </div>
+                  </li>
+                  <li>
+                    <div class="category leftt">Types</div>
+                    <div class="value leftt">{{detail?.propertyType}}</div>
+                  </li>
+                  <li>
+                    <div class="category leftt">Developer</div>
+                    <div class="value leftt">
+                      {{detail?.developBy}}
+                    </div>
+                  </li>
+                </ul>
+              </section>
+              <section class="description " id="overview_descp">
+                <div class="desc-text ltr toogle-class">
+                  {{detail?.projectDescription}}<br /><br />
+                </div>
+              </section>
+              <!-- End of Detail and Description -->
+
+              <!-- Progress Updates -->
+              <!-- End of Progress Updates -->
+            </div>
+          </section>
+        </div>
+        <div id="Projectfeatures"></div>
+        <div class="project-view">
+          <!--New Project View Description Start -->
+          <section class="overview container">
+            <div class="main-heading">PROJECT FEATURES</div>
+            <div class="content">
+              <h3 class="sub-heading">
+                Details &amp; Description
+              </h3>
+              <!-- Detail and Description -->
+              <div class="container1">
+                <ul class="ul">
+                  <li
+                    class="data"
+                    *ngFor="let feature of JSONparse(detail?.plot_features[0])"
+                  >
+                    <span *ngIf="feature?.checked">
+                      <img [src]="feature?.icon" />
+                      <p class="label">{{feature?.value}}</p>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <h3 class="sub-heading">
+                BUSINESS AND COMMUNICATION
+              </h3>
+              <div class="container1">
+                <ul class="ul">
+                  <li
+                    class="data"
+                    *ngFor="let feature of JSONparse(detail?.business_communication[0])"
+                  >
+                    <span *ngIf="feature?.checked">
+                      <img [src]="feature?.icon" />
+                      <p class="label">{{feature?.value}}</p>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <h3 class="sub-heading">
+                COMMUNITY FEATURES
+              </h3>
+              <div class="container1">
+                <ul class="ul">
+                  <li
+                    class="data"
+                    *ngFor="let feature of JSONparse(detail?.community_features[0])"
+                  >
+                    <span *ngIf="feature?.checked">
+                      <img [src]="feature?.icon" />
+                      <p class="label">{{feature?.value}}</p>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <h3 class="sub-heading">
+                NEARBY LOCATIONS AND OTHER FACILITIES
+              </h3>
+              <div class="container1">
+                <ul class="ul">
+                  <li
+                    class="data"
+                    *ngFor="let feature of JSONparse(detail?.near_locations[0])"
+                  >
+                    <span *ngIf="feature?.checked">
+                      <img [src]="feature?.icon" />
+                      <p class="label">{{feature?.value}}</p>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <h3 class="sub-heading">
+                OTHER FACILITIES
+              </h3>
+              <div class="container1">
+                <ul class="ul">
+                  <li
+                    class="data"
+                    *ngFor="let feature of JSONparse(detail?.other_facilites[0])"
+                  >
+                    <span *ngIf="feature?.checked">
+                      <img [src]="feature?.icon" />
+                      <p class="label">{{feature?.value}}</p>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <!-- End of Detail and Description -->
+
+              <!-- Progress Updates -->
+              <!-- End of Progress Updates -->
+            </div>
+          </section>
+        </div>
+        <!-- <div id="locationtab"></div>
+        <div class="project-view">
+       
+          <section class="overview container">
+            <div class="main-heading">Location & Nearby</div>
+            <div class="content">
+              <h3 class="sub-heading">
+                Details &amp; Description
+              </h3>
+          
+              <div class="container1">
+                <ul class="ul">
+                  <li class="data">
+                    <span class="label">Community Lawn or Garden: </span
+                    ><span class="value">Yes</span>
+                  </li>
+                  <li class="data">
+                    <span class="label">Community Gym: </span
+                    ><span class="value">Yes</span>
+                  </li>
+                  <li class="data">
+                    <span class="label">Kids Play Area: </span
+                    ><span class="value">Yes</span>
+                  </li>
+                  <li class="data">
+                    <span class="label">Mosque: </span
+                    ><span class="value">Yes</span>
+                  </li>
+                  <li class="data">
+                    <span class="label">Community Centre: </span
+                    ><span class="value">Yes</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div> -->
+        <div id="propertytype"></div>
+        <div class="project-view">
+          <!--New Project View Description Start -->
+          <section class="overview container">
+            <div class="main-heading">Property Types</div>
+            <div class="content">
+              <h3 class="sub-heading">
+                RESIDENTIAL PLOTS (FARM HOUSE LAND)
+              </h3>
+              <!-- Detail and Description -->
+              <div class="container1">
+                <ul class="ul">
+                  <li class="data">
+                    <span class="label">Community Lawn or Garden: </span
+                    ><span class="value">Yes</span>
+                  </li>
+                  <li class="data">
+                    <span class="label">Community Gym: </span
+                    ><span class="value">Yes</span>
+                  </li>
+                </ul>
+              </div>
+              <h3 class="sub-heading">
+                RESIDENTIAL PLOTS (FARM HOUSE LAND)
+              </h3>
+              <!-- Detail and Description -->
+              <div class="container1">
+                <ul>
+                  <li class="data">
+                    <span class="label">Community Lawn or Garden: </span
+                    ><span class="value">Yes</span>
+                  </li>
+                  <li class="data">
+                    <span class="label">Community Gym: </span
+                    ><span class="value">Yes</span>
+                  </li>
+                </ul>
+              </div>
+              <h3 class="sub-heading">
+                RESIDENTIAL PLOTS (FARM HOUSE LAND)
+              </h3>
+              <!-- Detail and Description -->
+              <div class="container1">
+                <ul>
+                  <li class="data">
+                    <span class="label">Community Lawn or Garden: </span
+                    ><span class="value">Yes</span>
+                  </li>
+                  <li class="data">
+                    <span class="label">Community Gym: </span
+                    ><span class="value">Yes</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div id="paymenttab"></div>
+        <div class="project-view">
+          <!--New Project View Description Start -->
+          <section class="overview container">
+            <div class="main-heading">Payment Plan</div>
+            <div class="content">
+              <h3 class="sub-heading">
+                Details &amp; Description
+              </h3>
+              <!-- Detail and Description -->
+              <div class="container1">
+                <ul class="ul">
+                  <li class="data">
+                    <span class="label">Community Lawn or Garden: </span
+                    ><span class="value">Yes</span>
+                  </li>
+                  <li class="data">
+                    <span class="label">Community Gym: </span
+                    ><span class="value">Yes</span>
+                  </li>
+                  <li class="data">
+                    <span class="label">Kids Play Area: </span
+                    ><span class="value">Yes</span>
+                  </li>
+                  <li class="data">
+                    <span class="label">Mosque: </span
+                    ><span class="value">Yes</span>
+                  </li>
+                  <li class="data">
+                    <span class="label">Community Centre: </span
+                    ><span class="value">Yes</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div id="developer"></div>
+        <div class="project-view">
+          <!--New Project View Description Start -->
+          <section class="overview container">
+            <div class="main-heading">Developer</div>
+            <div class="content">
+              <h3 class="sub-heading">
+                Countree Farmhouses & Resort
+              </h3>
+              <!-- Detail and Description -->
+              <div class="container1">
+                <p>
+                  Known as the expert marketing and land development
+                  organization of Pakistan,Countree Farmhouses & Resort is
+                  measured as the true pioneer market lead of real-estate
+                  sector. With an enormously experienced and eligible team,
+                  Countree Farmhouses & Resort has a highly sound reputation and
+                  a very successful track record. In fact the company takes
+                  pleasure in the admiration of establishing some of the most
+                  successful residential and commercial projects throughout
+                  Pakistan to its credit. Flawless structuring of marketing
+                  concepts and implementation of promotional strategies has made
+                  Countree Farmhouses & Resort a true brand leader with a wealth
+                  of expertise and experience. Serving a wide array of prominent
+                  clients for a number of years, Countree Farmhouses & Resort
+                  specializes in cutting edge marketing in the real estate
+                  sector. Through its highly focused compelling result driven
+                  marketing campaigns, the company has urbanized to become the
+                  largest provider of innovative and modern solution to the real
+                  estate industry. The company is currently having few other
+                  projects i.e. Islamabad Farm Houses, Metro Homes, CounTree
+                  Residencia.
+                </p>
+              </div>
+              <div class="marginBottom"></div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer *ngIf="projectDetail=='detail'">
+  <div class="scrolling-wrapper">
+    <span *ngFor="let tab of tabs">
+      <div (click)="scroll(tab?.tabname)" class="card">
+        <div class="images center">
+          <img class="iconTab" [src]="tab.url" />
+          <h6 class="text">{{tab.name}}</h6>
+        </div>
+      </div>
+    </span>
+  </div>
+</ion-footer>

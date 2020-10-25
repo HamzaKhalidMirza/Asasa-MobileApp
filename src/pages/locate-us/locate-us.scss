@@ -1,0 +1,27 @@
+page-locate-us {
+  .closeIcon {
+    filter: brightness(0);
+    padding: 1rem;
+    margin: 0rem !important;
+    height: 4rem;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+  p {
+    padding: 1rem;
+    margin: 0;
+    font-size: 1.2rem;
+    background: whitesmoke;
+    color: #0a6492 !important;
+  }
+
+  h3 {
+    text-align: center;
+  }
+
+  ion-card-title {
+    text-align: center;
+  }
+}

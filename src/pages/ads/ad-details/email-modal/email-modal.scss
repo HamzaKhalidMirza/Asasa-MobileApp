@@ -1,0 +1,104 @@
+page-email {
+  .detailContent {
+    padding: 1rem 1rem 2.9rem 1rem;
+  }
+  .scroll-content {
+    background: #f7f7f7;
+  }
+
+  .customerCare {
+    display: flex;
+    justify-content: center;
+    // margin-top: 3rem;
+    height: 19rem;
+    img {
+      width: 100%;
+    }
+  }
+
+  .title {
+    text-align: center;
+    font-weight: 500;
+    font-size: 24px;
+    color: #333;
+    letter-spacing: 1px;
+    margin: 10px;
+  }
+
+  .text-input {
+    padding-left: 1em;
+  }
+
+  .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus)
+    .item-inner {
+    box-shadow: none;
+  }
+
+  ion-header {
+    background: #0a6492;
+    text-align: right;
+  }
+  .closeIcon {
+    filter: brightness(0) invert(1);
+    padding: 1rem 1.5rem 0.5rem;
+    margin: 0rem !important;
+    height: 3rem;
+  }
+
+  .btnFooter {
+    background-color: #2e759d !important;
+  }
+
+  .contactUs {
+    text-align: center;
+    padding: 2rem;
+    font-weight: 400;
+    h4 {
+      color: gray;
+      padding: 20px 0 10px;
+      border-bottom: 4px solid gray;
+      width: 130px;
+      margin: auto;
+      margin-bottom: 20px;
+    }
+    p {
+      color: gray;
+      font-size: 16px;
+      b {
+        color: #333;
+      }
+    }
+
+    .whatsapp {
+      background: #25d366;
+      padding: 1rem 0.5rem;
+      margin: 2rem;
+      border-radius: 5px;
+    }
+    a,
+    ion-icon {
+      font-size: 18px;
+      color: white;
+      text-decoration: none;
+    }
+    .call {
+      background: #2e759d;
+      padding: 1rem 0.5rem;
+      margin: 2rem;
+      border-radius: 5px;
+    }
+  }
+
+  .numbers {
+    display: flex;
+    flex-direction: column;
+    a {
+      color: #2e759d;
+      text-decoration: underline;
+    }
+  }
+
+  .inValid {
+    border-bottom: 1px solid #dc3545;
+  }
+}
